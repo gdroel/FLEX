@@ -10,6 +10,7 @@
 #import "FLEXShortcut.h"
 #import "FLEXRuntimeUtility.h"
 #import "NSObject+FLEX_Reflection.h"
+#import "Cocoa+FLEXShortcuts.h"
 
 #pragma mark - UIApplication
 
@@ -141,7 +142,22 @@
             @"viewIfLoaded", @"title", @"navigationItem", @"toolbarItems", @"tabBarItem",
             @"childViewControllers", @"navigationController", @"tabBarController", @"splitViewController",
             @"parentViewController", @"presentedViewController", @"presentingViewController",
-        ]).methods(@[@"view"]).forClass(UIViewController.class);
+        ])
+        .methods(@[@"view"])
+        .forClass(UIViewController.class);
+    
+    // UIAlertController
+    self.append
+        .properties(@[
+            @"title", @"message", @"actions", @"textFields", @"image",
+            @"preferredAction", @"presentingViewController", @"viewIfLoaded",
+        ])
+        .methods(@[@"addAction:"])
+        .forClass(UIAlertController.class);
+    self.append.properties(@[
+        @"title", @"style", @"enabled", @"flex_styleName",
+        @"image", @"keyCommandInput", @"_isPreferred", @"_alertController",
+    ]).forClass(UIAlertAction.class);
 }
 
 @end
