@@ -11,7 +11,6 @@
 #import "FLEXMacros.h"
 #import "FLEXRuntimeUtility.h"
 #import "NSObject+FLEX_Reflection.h"
-#import "Cocoa+FLEXShortcuts.h"
 
 #pragma mark - UIApplication
 
